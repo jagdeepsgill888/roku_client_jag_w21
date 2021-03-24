@@ -1,5 +1,5 @@
 import LoginComponent from './components/TheLoginComponent.js';
-import AllUsers from './components/TheLoginComponent.js';
+import AllUsers from './components/TheAllUsersComponents.js';
 
 const router = new VueRouter({
     routes: [
