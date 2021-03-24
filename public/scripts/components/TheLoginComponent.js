@@ -40,7 +40,34 @@ export default {
  
      methods: {
          login() {
+         // lets check for valid input
+         if (this.input.username !="" && this.input.password !="") {
+             // do our login
+             let loginData = JSON.stringify({username: this.input.username, passoword: this.input.password});
 
+             let url = `/ums/admin/login`;
+             fetch(url, {
+                 method: 'POST',
+                 body: loginData,
+                 headers: {
+                     'Accept': 'application/json, text/plain, */*',
+                     'Content-type': 'application/json'
+                 }
+
+             })
+             .then(res => res.json())
+             .then(data => {
+                 if (data.message) {
+                 console.warn("user doesn't exist, or something else broke");
+                } else {
+                    data.user_name = this.input.username;
+                    this.$router.replace({ name: "users"});
+                }
+             })
+             .catch((err) => console.error(err));
+         } else {
+             console.log("A username and password needs to be input");
+         }
          }            
     }
  }
