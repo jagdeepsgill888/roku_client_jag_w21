@@ -1,5 +1,4 @@
 import LoginComponent from './components/TheLoginComponent.js';
-import TheMovieThumbnail from './components/TheLoginComponent.js';
 import AllUsers from './components/TheLoginComponent.js';
 
 const router = new VueRouter({
